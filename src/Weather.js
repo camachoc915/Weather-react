@@ -99,7 +99,7 @@ export default function Weather() {
             type="search"
             placeholder="Search other cities"
             id="city-input"
-            className="form-control"
+            className="control-form"
           />
           <input type="Submit" value="Search" className="control-submit" />
         </form>
