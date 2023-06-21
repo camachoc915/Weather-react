@@ -109,9 +109,9 @@ export default function Weather() {
         </button>
         <p className="source-code">
           This project was coded by Cristina Camacho and is&nbsp;
-          <a href="https://magical-biscotti-5da0a0.netlify.app/">
+          <span href="https://magical-biscotti-5da0a0.netlify.app/">
             Open-sourced
-          </a>
+          </span>
           &nbsp;on Github
         </p>
       </section>
