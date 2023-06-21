@@ -15,7 +15,7 @@ export default function Weather() {
   return (
     <div className="container">
       <h1 id="city">San Diego, CA</h1>
-      <h2 id="date"></h2>
+      <h2 id="date">{weatherData.date}</h2>
       <span className="weather-icon">
         <img
           src="https://openweathermap.org/img/wn/10d@2x.png"
@@ -24,14 +24,10 @@ export default function Weather() {
           className="float-left"
         />
       </span>
-      <h3 id="temperature"></h3>
+      <h3 id="temperature">{weatherData.temperature}</h3>
       <span className="unit">
-        <a href="#" id="celsius-link">
-          °C |
-        </a>
-        <a href="#" id="fahrenheit-link">
-          °F{" "}
-        </a>
+        <span id="celsius-link">°C |</span>
+        <span id="fahrenheit-link">°F </span>
       </span>
       <h3 className="weather" id="weather-description">
         Partly Cloudy
