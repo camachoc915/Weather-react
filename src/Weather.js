@@ -26,9 +26,9 @@ export default function Weather() {
       </span>
       <h3 id="temperature"></h3>
       <span className="unit">
-        <span href="#" id="celsius-link">
+        <a href="#" id="celsius-link">
           °C |
-        </span>
+        </a>
         <a href="#" id="fahrenheit-link">
           °F{" "}
         </a>
@@ -99,7 +99,7 @@ export default function Weather() {
             type="search"
             placeholder="Search other cities"
             id="city-input"
-            className="control-form"
+            className="form-control"
           />
           <input type="Submit" value="Search" className="control-submit" />
         </form>
@@ -109,9 +109,9 @@ export default function Weather() {
         </button>
         <p className="source-code">
           This project was coded by Cristina Camacho and is&nbsp;
-          <span href="https://magical-biscotti-5da0a0.netlify.app/">
+          <a href="https://magical-biscotti-5da0a0.netlify.app/">
             Open-sourced
-          </span>
+          </a>
           &nbsp;on Github
         </p>
       </section>
