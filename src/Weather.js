@@ -37,8 +37,8 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="container">
-        <h1 id="city">San Diego, CA</h1>
-        <h2 id="date">{weatherData.date.getDay()}</h2>
+        <h1 id="city">{weatherData.city}</h1>
+        <h2 id="date">{weatherData.date}</h2>
         <span className="weather-icon">
           <img
             src={weatherData.iconUrl}
