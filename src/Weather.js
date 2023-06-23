@@ -4,13 +4,9 @@ import "./Weather.css";
 
 export default function Weather() {
   const [ready, setReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+  const [weatherData, setWeatherData] = useState({});
   function handleResponse(response) {
-    setTemperature(response.data.main.temp);
-    setReady(true);
-  }
-
-  let weatherData = {
+    setWeatherData({
     city: "New York",
     temperature: 19,
     date: "Tuesday 10:00",
@@ -18,7 +14,8 @@ export default function Weather() {
     imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
     humidity: 80,
     wind: 10,
-  };
+  });
+
   if (ready) {
     return (
       <div className="container">
