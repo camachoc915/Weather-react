@@ -3,33 +3,35 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
   function handleResponse(response) {
     setWeatherData({
-    city: "New York",
-    temperature: 19,
-    date: "Tuesday 10:00",
-    description: "Cloudy",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-    humidity: 80,
-    wind: 10,
-  });
+      ready: true,
+      temperature: response.data.main.temp,
+      date: "Wednesday 7:00",
+      humidity: response.data.main.humidity,
+      description: response.data.main.weather[0].description,
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      wind: response.data.wind.speed,
+      city: response.data.name,
+    });
+  }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="container">
         <h1 id="city">San Diego, CA</h1>
         <h2 id="date">{weatherData.date}</h2>
         <span className="weather-icon">
           <img
-            src="https://openweathermap.org/img/wn/10d@2x.png"
-            alt="Scattered Showers"
+            src={weatherData.iconUrl}
+            alt={weatherData.description}
             id="icon"
             className="float-left"
           />
         </span>
-        <h3 id="temperature">{weatherData.temperature}</h3>
+        <h3 id="temperature">{Math.round(weatherData.temperature)}</h3>
         <span className="unit">
           <span id="celsius-link">°C |</span>
           <span id="fahrenheit-link">°F </span>
