@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
+  const [ready, setReady] = useState(false);
+  const [temperature, setTemperature] = useState(null);
+  function handleResponse(response) {
+    setTemperature(response.data.main.temp);
+  }
+
   let weatherData = {
     city: "New York",
     temperature: 19,
@@ -11,7 +18,8 @@ export default function Weather() {
     humidity: 80,
     wind: 10,
   };
-
+}
+if (ready) {
   return (
     <div className="container">
       <h1 id="city">San Diego, CA</h1>
@@ -30,10 +38,10 @@ export default function Weather() {
         <span id="fahrenheit-link">°F </span>
       </span>
       <h3 className="weather" id="weather-description">
-        Partly Cloudy
+        {weatherData.description}
       </h3>
       <h3>
-        Wind: <span id="speed"></span> km/h
+        Wind: <span id="speed">{weatherData.wind}</span> km/h
       </h3>
       <section className="vh-100">
         <div className="container py-4 h-80">
@@ -113,4 +121,9 @@ export default function Weather() {
       </section>
     </div>
   );
+} else {
+  const apiKey = "4d47aca4t54edb1e29ed0ff22da3a8do";
+  let city = "New York";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(handleResponse);
 }
