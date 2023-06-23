@@ -12,7 +12,7 @@ export default function Weather(props) {
       temperature: response.data.main.temp,
       date: new Date(response.data.dt * 1000),
       humidity: response.data.main.humidity,
-      description: response.data.main.weather[0].description,
+      description: response.data.weather[0].description,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       wind: response.data.wind.speed,
       city: response.data.name,
@@ -38,7 +38,7 @@ export default function Weather(props) {
     return (
       <div className="container">
         <h1 id="city">{weatherData.city}</h1>
-        <h2 id="date">{weatherData.date}</h2>
+        <h2 id="date">{weatherData.date.getTime()}</h2>
         <span className="weather-icon">
           <img
             src={weatherData.iconUrl}
