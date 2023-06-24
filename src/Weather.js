@@ -138,6 +138,7 @@ export default function Weather(props) {
             &nbsp;on Github
           </p>
         </section>
+        <weatherInfo info={weatherData} />
       </div>
     );
   } else {
