@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./Weather.css";
 
@@ -38,7 +39,9 @@ export default function Weather(props) {
     return (
       <div className="container">
         <h1 id="city">{weatherData.city}</h1>
-        <h2 id="date">{weatherData.date.getTime()}</h2>
+        <h2 id="date">
+          <FormattedDate date={weatherData.date} />
+        </h2>
         <span className="weather-icon">
           <img
             src={weatherData.iconUrl}
