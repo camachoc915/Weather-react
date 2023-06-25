@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import WeatherInfo from "./WeatherInfo";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city, setCity] = useState(props.defaultCity);
+  const [city /*setCity*/] = useState(props.defaultCity);
 
   function handleResponse(response) {
     setWeatherData({
@@ -20,14 +20,14 @@ export default function Weather(props) {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    search();
-  }
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   search();
+  // }
 
-  function handleCityChange(event) {
-    setCity(event.target.value);
-  }
+  // function handleCityChange(event) {
+  //   setCity(event.target.value);
+  // }
 
   function search() {
     const apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
