@@ -45,9 +45,9 @@ export default function Weather(props) {
           <FormattedDate date={weatherData.date} />
         </h2>
         <span className="weather-icon">
-          <WeatherIcon code={props.data.icon} />
+          <WeatherIcon code={weatherData.icon} />
         </span>
-        <WeatherTemperature celsius={props.data.temperature} />
+        <WeatherTemperature celsius={weatherData.temperature} />
         <h3 id="temperature">{Math.round(weatherData.temperature)}</h3>
         <span className="unit">
           <span id="celsius-link">°C |</span>
