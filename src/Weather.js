@@ -7,7 +7,7 @@ import WeatherTemperature from "./WeatherTemperature";
 
 export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-  const [city /*setCity*/] = useState(props.defaultCity);
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
     setWeatherData({
@@ -22,14 +22,14 @@ export default function Weather(props) {
     });
   }
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   search();
-  // }
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
 
-  // function handleCityChange(event) {
-  //   setCity(event.target.value);
-  // }
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
 
   function search() {
     const apiKey = "5ef4de8cd6b7fefcd7c42f98cf464ce8";
@@ -48,11 +48,6 @@ export default function Weather(props) {
           <WeatherIcon code={weatherData.icon} />
         </span>
         <WeatherTemperature celsius={weatherData.temperature} />
-        <h3 id="temperature">{Math.round(weatherData.temperature)}</h3>
-        <span className="unit">
-          <span id="celsius-link">°C |</span>
-          <span id="fahrenheit-link">°F </span>
-        </span>
         <h3 className="weather" id="weather-description">
           {weatherData.description}
         </h3>
@@ -114,12 +109,13 @@ export default function Weather(props) {
               </div>
             </div>
           </div>
-          <form id="search-form">
+          <form id="search-form" onSubmit={handleSubmit}>
             <input
               type="search"
               placeholder="Search other cities"
               id="city-input"
               className="control-form"
+              onChange={handleCityChange}
             />
             <input type="Submit" value="Search" className="control-submit" />
           </form>
